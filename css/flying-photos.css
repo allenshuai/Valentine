@@ -1,0 +1,102 @@
+/* Flying photos – couple + portrait, randomized rotation & slight size variation */
+.flying-photos {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 45;
+  overflow: hidden;
+}
+
+.flying-photo {
+  position: absolute;
+  bottom: -15%;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  overflow: hidden;
+}
+
+.flying-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Slightly different sizes (natural variation) */
+.flying-photo.photo-rise-1 { width: 70px; height: 70px; max-width: 21vw; max-height: 21vw; animation: photo-rise-1 14s ease-in infinite; }
+.flying-photo.photo-rise-2 { width: 68px; height: 68px; max-width: 20vw; max-height: 20vw; animation: photo-rise-2 13s ease-in infinite; }
+.flying-photo.photo-rise-3 { width: 74px; height: 74px; max-width: 22vw; max-height: 22vw; animation: photo-rise-3 15s ease-in infinite; }
+.flying-photo.photo-rise-4 { width: 69px; height: 69px; max-width: 20vw; max-height: 20vw; animation: photo-rise-4 14.5s ease-in infinite; }
+.flying-photo.photo-rise-5 { width: 72px; height: 72px; max-width: 21vw; max-height: 21vw; animation: photo-rise-5 13.5s ease-in infinite; }
+.flying-photo.photo-rise-6 { width: 71px; height: 71px; max-width: 21vw; max-height: 21vw; animation: photo-rise-6 14s ease-in infinite; }
+.flying-photo.photo-rise-7 { width: 67px; height: 67px; max-width: 19vw; max-height: 19vw; animation: photo-rise-7 15.5s ease-in infinite; }
+.flying-photo.photo-rise-8 { width: 73px; height: 73px; max-width: 22vw; max-height: 22vw; animation: photo-rise-8 13.8s ease-in infinite; }
+
+/* Positions and delays */
+.flying-photo.photo-rise-1 { left: 5%;  animation-delay: 0s;     }
+.flying-photo.photo-rise-2 { left: 32%; animation-delay: 1.8s;   }
+.flying-photo.photo-rise-3 { left: 58%; animation-delay: 3.6s;   }
+.flying-photo.photo-rise-4 { left: 82%; animation-delay: 5.4s;   }
+.flying-photo.photo-rise-5 { left: 12%; animation-delay: 7s;     }
+.flying-photo.photo-rise-6 { left: 42%; animation-delay: 8.5s;   }
+.flying-photo.photo-rise-7 { left: 68%; animation-delay: 10.2s;  }
+.flying-photo.photo-rise-8 { left: 22%; animation-delay: 11.8s;  }
+
+/* Each has different rotation through the animation (randomized feel) */
+@keyframes photo-rise-1 {
+  0%   { transform: translateY(0) translateX(0) rotate(-5deg); opacity: 0; }
+  8%   { opacity: 0.9; }
+  50%  { transform: translateY(-50vh) translateX(8px) rotate(4deg); opacity: 0.92; }
+  92%  { opacity: 0.2; }
+  100% { transform: translateY(-130vh) translateX(-6px) rotate(2deg); opacity: 0; }
+}
+@keyframes photo-rise-2 {
+  0%   { transform: translateY(0) translateX(0) rotate(3deg); opacity: 0; }
+  8%   { opacity: 0.9; }
+  50%  { transform: translateY(-50vh) translateX(-10px) rotate(-4deg); opacity: 0.92; }
+  92%  { opacity: 0.2; }
+  100% { transform: translateY(-130vh) translateX(5px) rotate(-1deg); opacity: 0; }
+}
+@keyframes photo-rise-3 {
+  0%   { transform: translateY(0) translateX(0) rotate(-2deg); opacity: 0; }
+  8%   { opacity: 0.9; }
+  50%  { transform: translateY(-50vh) translateX(12px) rotate(6deg); opacity: 0.92; }
+  92%  { opacity: 0.2; }
+  100% { transform: translateY(-130vh) translateX(-9px) rotate(3deg); opacity: 0; }
+}
+@keyframes photo-rise-4 {
+  0%   { transform: translateY(0) translateX(0) rotate(6deg); opacity: 0; }
+  8%   { opacity: 0.9; }
+  50%  { transform: translateY(-50vh) translateX(-7px) rotate(-3deg); opacity: 0.92; }
+  92%  { opacity: 0.2; }
+  100% { transform: translateY(-130vh) translateX(10px) rotate(-5deg); opacity: 0; }
+}
+@keyframes photo-rise-5 {
+  0%   { transform: translateY(0) translateX(0) rotate(-4deg); opacity: 0; }
+  8%   { opacity: 0.9; }
+  50%  { transform: translateY(-50vh) translateX(-11px) rotate(2deg); opacity: 0.92; }
+  92%  { opacity: 0.2; }
+  100% { transform: translateY(-130vh) translateX(7px) rotate(5deg); opacity: 0; }
+}
+@keyframes photo-rise-6 {
+  0%   { transform: translateY(0) translateX(0) rotate(2deg); opacity: 0; }
+  8%   { opacity: 0.9; }
+  50%  { transform: translateY(-50vh) translateX(9px) rotate(-6deg); opacity: 0.92; }
+  92%  { opacity: 0.2; }
+  100% { transform: translateY(-130vh) translateX(-4px) rotate(-2deg); opacity: 0; }
+}
+@keyframes photo-rise-7 {
+  0%   { transform: translateY(0) translateX(0) rotate(1deg); opacity: 0; }
+  8%   { opacity: 0.9; }
+  50%  { transform: translateY(-50vh) translateX(-8px) rotate(5deg); opacity: 0.92; }
+  92%  { opacity: 0.2; }
+  100% { transform: translateY(-130vh) translateX(11px) rotate(-4deg); opacity: 0; }
+}
+@keyframes photo-rise-8 {
+  0%   { transform: translateY(0) translateX(0) rotate(-3deg); opacity: 0; }
+  8%   { opacity: 0.9; }
+  50%  { transform: translateY(-50vh) translateX(6px) rotate(1deg); opacity: 0.92; }
+  92%  { opacity: 0.2; }
+  100% { transform: translateY(-130vh) translateX(-12px) rotate(4deg); opacity: 0; }
+}

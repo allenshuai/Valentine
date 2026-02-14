@@ -1,0 +1,100 @@
+/* Intro screen – bright pink + warm palette */
+.screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  transition: opacity 0.8s ease;
+  background: linear-gradient(165deg, #c89a62 0%, #dd5d3d 40%, #8581de 100%);
+  color: #fff0f5;
+}
+
+.screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.message {
+  font-size: clamp(0.9rem, 3.2vw, 1.15rem);
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.4;
+  white-space: nowrap;
+  margin-bottom: 1.25rem;
+}
+
+.btn-how {
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #3d2638;
+  background: linear-gradient(135deg, #ffb3d9 0%, #ff8fab 50%, #ffcc80 100%);
+  border: none;
+  padding: 0.65rem 1.8rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 24px rgba(255, 152, 0, 0.35), 0 4px 20px rgba(244, 143, 177, 0.5);
+}
+
+.btn-how:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 32px rgba(255, 152, 0, 0.4), 0 6px 28px rgba(244, 143, 177, 0.6);
+}
+
+.btn-how:active {
+  transform: scale(0.98);
+}
+
+.audio-hint {
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: rgba(255, 240, 245, 0.65);
+  margin-top: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+/* Bouquet screen wrapper */
+.bouquet-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: #3d2638;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease 0.2s;
+  overflow: hidden;
+}
+
+.bouquet-screen.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bouquet-screen.not-loaded * {
+  animation-play-state: paused !important;
+}
+
+.bouquet-caption {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  color: #ffc4dd;
+  opacity: 0;
+  z-index: 100;
+  animation: captionFadeIn 0.8s ease 5s forwards;
+}
+
+@keyframes captionFadeIn {
+  to {
+    opacity: 1;
+  }
+}

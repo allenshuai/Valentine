@@ -1,0 +1,62 @@
+/* Hearts rising from bottom to top (continuous stream) */
+.hearts-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  bottom: -5%;
+  width: 18px;
+  height: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 18'%3E%3Cpath fill='%23ff8fab' d='M10 15 C10 15 2 9 2 5 C2 2 4 1 6 1 C8 1 9 3 10 5 C11 3 12 1 14 1 C16 1 18 2 18 5 C18 9 10 15 10 15 Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0;
+  animation: heart-rise 10s ease-in infinite;
+}
+
+/* Stagger positions and delays so the stream feels continuous */
+.heart.rise-1 { left: 8%;  animation-delay: 0s;    }
+.heart.rise-2 { left: 22%; animation-delay: 1.2s;  }
+.heart.rise-3 { left: 38%; animation-delay: 2.5s;  }
+.heart.rise-4 { left: 55%; animation-delay: 3.8s;  }
+.heart.rise-5 { left: 72%; animation-delay: 5.2s;  }
+.heart.rise-6 { left: 88%; animation-delay: 6.5s;  }
+.heart.rise-7 { left: 15%; animation-delay: 7.8s;  }
+.heart.rise-8 { left: 65%; animation-delay: 9s;   }
+
+/* Mix in orange/peach hearts */
+.heart.rise-2,
+.heart.rise-5,
+.heart.rise-8 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 18'%3E%3Cpath fill='%23ffb74d' d='M10 15 C10 15 2 9 2 5 C2 2 4 1 6 1 C8 1 9 3 10 5 C11 3 12 1 14 1 C16 1 18 2 18 5 C18 9 10 15 10 15 Z'/%3E%3C/svg%3E");
+}
+.heart.rise-4 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 18'%3E%3Cpath fill='%23ffcc80' d='M10 15 C10 15 2 9 2 5 C2 2 4 1 6 1 C8 1 9 3 10 5 C11 3 12 1 14 1 C16 1 18 2 18 5 C18 9 10 15 10 15 Z'/%3E%3C/svg%3E");
+}
+
+@keyframes heart-rise {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  6% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.85;
+    transform: translateY(-50vh) translateX(6px);
+  }
+  94% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(-120vh) translateX(-4px);
+    opacity: 0;
+  }
+}
