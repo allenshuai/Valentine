@@ -23,6 +23,12 @@
   display: block;
 }
 
+/* Clickable punch photo – allow pointer events */
+.flying-photo.photo-punch {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
 /* Slightly different sizes (natural variation) */
 .flying-photo.photo-rise-1 { width: 70px; height: 70px; max-width: 21vw; max-height: 21vw; animation: photo-rise-1 14s ease-in infinite; }
 .flying-photo.photo-rise-2 { width: 68px; height: 68px; max-width: 20vw; max-height: 20vw; animation: photo-rise-2 13s ease-in infinite; }
@@ -99,4 +105,33 @@
   50%  { transform: translateY(-50vh) translateX(6px) rotate(1deg); opacity: 0.92; }
   92%  { opacity: 0.2; }
   100% { transform: translateY(-130vh) translateX(-12px) rotate(4deg); opacity: 0; }
+}
+
+/* "punch you" message – center screen, fade in then out */
+.punch-message {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.punch-message.visible {
+  opacity: 1;
+}
+
+.punch-message.fade-out {
+  opacity: 0;
+}
+
+.punch-message {
+  font-family: inherit;
+  font-size: clamp(2rem, 10vw, 4rem);
+  font-weight: 700;
+  color: #fff0f5;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
